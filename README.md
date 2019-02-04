@@ -28,13 +28,21 @@ git clone https://github.com/looplab/logspout-logstash.git
 
 cp ~/docker-logspout/modules.go ~/logspout/modules.go
 
-cp ~/logspout-logstash  ~/logspout/adapters
+cp -r ~/logspout-logstash/  ~/logspout/adapters
+rm -rf ~/logspout/adapters/logspout-logstash/.git
+rm     ~/logspout/adapters/logspout-logstash/.gitignore
+rm     ~/logspout/adapters/logspout-logstash/LICENSE
+rm     ~/logspout/adapters/logspout-logstash/README.md
+
 
 cd ~/logspout
 cat ./modules.go
 
 cd ~/logspout/adapters
 ls -asl
+
+
+
 
 #docker build -t sejnub/logspout:rpi-latest .
 docker build -t sejnub/logspout:rpi-1 .
