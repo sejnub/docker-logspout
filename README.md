@@ -20,6 +20,10 @@ docker push sejnub/logspout:rpi-latest
 ## Run
 
 ```bash
+
+cd ~
+rm -rf docker-logspout
+
 cd ~
 git clone https://github.com/sejnub/docker-logspout.git
 
