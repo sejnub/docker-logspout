@@ -16,26 +16,41 @@ rm -rf docker-logspout
 git clone https://github.com/sejnub/docker-logspout.git
 
 
-cd ~/docker-logspout
+cd ~
 rm -rf logspout
 git clone https://github.com/gliderlabs/logspout.git
 
 
-#cd ~/docker-logspout
-#rm -rf logspout-logstash
-#git clone https://github.com/looplab/logspout-logstash.git
+cd ~
+rm -rf logspout-logstash
+git clone https://github.com/looplab/logspout-logstash.git
 
 
 cp ~/docker-logspout/modules.go ~/logspout/modules.go
 
-cd ~/logspout
+cp ~/logspout-logstash  ~/logspout/adapters
 
+cd ~/logspout
 cat ./modules.go
+
+cd ~/logspout/adapters
+ls -asl
 
 #docker build -t sejnub/logspout:rpi-latest .
 docker build -t sejnub/logspout:rpi-1 .
 
-
+# Leads to
+#
+# [INFO]  --> Exporting github.com/Sirupsen/logrus
+# [INFO]  --> Exporting github.com/hashicorp/go-cleanhttp
+# [INFO]  --> Exporting golang.org/x/sys
+# [INFO]  --> Exporting golang.org/x/net
+# [INFO]  Replacing existing vendor dependencies
+# modules.go:13:2: cannot find package "github.com/looplab/logspout-logstash" in any of:
+#         /go/src/github.com/gliderlabs/logspout/vendor/github.com/looplab/logspout-logstash (vendor tree)
+#         /usr/lib/go/src/github.com/looplab/logspout-logstash (from $GOROOT)
+#         /go/src/github.com/looplab/logspout-logstash (from $GOPATH)
+# The command '/bin/sh -c cd /src && ./build.sh "$(cat VERSION)"' returned a non-zero code: 1
 
 # Clean up
 
@@ -43,7 +58,7 @@ cd ~
 
 rm -rf docker-logspout
 rm -rf logspout
-rm -rf docker-logspout
+rm -rf logspout-logstash
 
 ```
 
