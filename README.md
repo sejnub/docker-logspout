@@ -8,10 +8,8 @@ git clone https://github.com/sejnub/logspout.git
 
 cd logspout
 
-docker build .
+docker build -t sejnub/logspout:rpi-latest .
 
-docker tag <hashvalue of new image> sejnub/logspout:rpi-latest
-  
 docker login
 
 docker push sejnub/logspout:rpi-latest
