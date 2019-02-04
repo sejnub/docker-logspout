@@ -28,9 +28,12 @@ git clone https://github.com/gliderlabs/logspout.git
 
 cp ~/docker-logspout/modules.go ~/logspout/modules.go
 
-cd logspout
+cd ~/logspout
 
-docker build -t sejnub/logspout:rpi-latest .
+cat ./modules.go
+
+#docker build -t sejnub/logspout:rpi-latest .
+docker build -t sejnub/logspout:rpi-1 .
 
 
 
