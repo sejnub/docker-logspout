@@ -6,7 +6,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-      ROUTE_URIS: logstash.internal://logstash:5001
+      ROUTE_URIS: logstash://logstash.internal:5001
       LOGSTASH_TAGS: rpi-03
     #networks:
       #- elk
