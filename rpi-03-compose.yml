@@ -2,12 +2,11 @@ version: '3'
 
 services:
   logspout:
+    container_name: logspout
     image: sejnub/logspout:rpi-latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       ROUTE_URIS: logstash://logstash.internal:5001
       LOGSTASH_TAGS: rpi-03
-    #networks:
-      #- elk
     restart: on-failure
