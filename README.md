@@ -89,6 +89,7 @@ export HOSTNAME=$(hostname)
 echo $HOSTNAME
 
 cd docker-logspout
+docker rm -f logspout
 docker-compose -f rpi-03-compose.yml up -d
 
 ```
