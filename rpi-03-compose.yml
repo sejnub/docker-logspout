@@ -7,6 +7,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-      ROUTE_URIS: logstash://logstash.internal:5001
-      LOGSTASH_TAGS: rpi-03
+      ROUTE_URIS:      logstash+tcp://logstash.internal:5000
+      LOGSTASH_FIELDS: "sejnub.source=logspout"
     restart: on-failure
