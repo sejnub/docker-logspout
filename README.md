@@ -85,8 +85,10 @@ rm -rf docker-logspout
 cd ~
 git clone https://github.com/sejnub/docker-logspout.git
 
-cd docker-logspout
+export HOSTNAME=$(hostname)
+echo $HOSTNAME
 
+cd docker-logspout
 docker-compose -f rpi-03-compose.yml up -d
 
 ```
