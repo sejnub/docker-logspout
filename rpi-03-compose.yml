@@ -9,4 +9,4 @@ services:
     environment:
       ROUTE_URIS:      logstash+tcp://logstash.internal:5001
       LOGSTASH_FIELDS: "sejnub.source=logspout,sejnub.host=${HOSTNAME},host=${HOSTNAME}"
-    restart: on-failure
+    restart: always
